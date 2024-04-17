@@ -7,12 +7,16 @@ const jwt= require("jsonwebtoken");
 const multer= require("multer");
 const path= require("path");
 const cors= require("cors");
+const dotenv = require('dotenv');
+dotenv.config();
+const BACKEND = process.env.BACKEND_URL;
+const mongoURL = process.env.MONGO_URL;
 
 app.use(express.json());   // by this all the request is pass through json
 app.use(cors());    // using this our reactjs project frontend will connect to express app on "4000" port
 
 // Database connection with mongodb
-mongoose.connect("mongodb+srv://EcommerceDev:Ecommerce%402003@cluster0.kmzoemi.mongodb.net/e-commerce");
+mongoose.connect(mongoURL);
 
 // API Creation
 app.get("/",(req,res)=>{
@@ -38,7 +42,7 @@ app.use('/images',express.static('upload/images'))  // make for to provide image
 app.post("/upload",upload.single('product'),(req,res)=>{
     res.json({
         success:1,
-        image_url:`http://localhost:${port}/images/${req.file.filename}`    // using this url we can access the uploaded img
+        image_url:`${BACKEND}/images/${req.file.filename}`    // using this url we can access the uploaded img
     });
 })
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './CSS/LoginSignup.css'
+const BACKEND = import.meta.env.REACT_BACKEND;
 
 const LoginSignup = () => {
 
@@ -18,7 +19,7 @@ const LoginSignup = () => {
     const login=async ()=>{
       // console.log("Login",formData);
       let responseData;
-      await fetch('http://localhost:4000/login', {
+      await fetch(`${BACKEND}/login`, {
         method:'POST',
         headers:{
           Accept:'application/form-data',
@@ -42,7 +43,7 @@ const LoginSignup = () => {
     const signup=async ()=>{
       // console.log("S Login",formData);
       let responseData;
-      await fetch('http://localhost:4000/signup', {
+      await fetch(`${BACKEND}/signup`, {
         method:'POST',
         headers:{
           Accept:'application/form-data',
