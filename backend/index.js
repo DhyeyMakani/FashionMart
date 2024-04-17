@@ -10,7 +10,7 @@ const cors= require("cors");
 const dotenv = require('dotenv');
 dotenv.config();
 const BACKEND = process.env.BACKEND_URL;
-const mongoURL = process.env.MONGO_URL;
+const mongoURL = process.env.mongoURL;
 
 app.use(express.json());   // by this all the request is pass through json
 app.use(cors());    // using this our reactjs project frontend will connect to express app on "4000" port

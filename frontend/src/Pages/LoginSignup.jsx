@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './CSS/LoginSignup.css'
-const BACKEND = import.meta.env.REACT_BACKEND;
+const BACKEND = process.env.REACT_APP_BACKEND;
 
 const LoginSignup = () => {
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Popular.css'
 // import data_product from '../Assets/data'
 import Item from '../Items/Item'
-const BACKEND = import.meta.env.REACT_BACKEND;
+const BACKEND = process.env.REACT_APP_BACKEND;
 
 const Popular = () => {
 

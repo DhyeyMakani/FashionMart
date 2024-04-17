@@ -2,7 +2,7 @@ import React, { createContext, useEffect, useState } from "react";
 // import all_product from '../Components/Assets/all_product';
 
 export const ShopContext = createContext(null);
-const BACKEND = import.meta.env.REACT_BACKEND;
+const BACKEND = process.env.REACT_APP_BACKEND;
 
 const getDefaultCart = ()=>{
     let cart={};

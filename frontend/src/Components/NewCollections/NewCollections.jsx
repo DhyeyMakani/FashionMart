@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './NewCollections.css'
 // import new_collection from '../Assets/new_collections'
 import Item from '../Items/Item'
-const BACKEND = import.meta.env.REACT_BACKEND;
+const BACKEND = process.env.REACT_APP_BACKEND;
 
 const NewCollections = () => {
 
