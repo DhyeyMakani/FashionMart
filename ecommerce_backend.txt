@@ -1,0 +1,32 @@
+multer : used to stores images to our admin pannel
+cors : used to add permission to our app. to access the backend
+
+backend : npm init (for package json)
+- npm install express
+- npm install jsonwebtoken
+- npm install mongoose
+- npm install multer
+- npm install cors
+
+mongo atlas :
+user-name : EcommerceDev
+password : Ecommerce@2003
+
+
+for ecommerce>admin folder:
+-npm create vite@latest .
+-select react and javascript
+(these commands are used to ceate project)
+
+-npm install (to install all the depandencies)
+
+-npm run dev (to run this project)
+
+(install react router dom package)
+-npm install react-router-dom
+
+
+for Run the project,
+frontend : npm start
+admin : npm run dev
+backend : node ./index.js
