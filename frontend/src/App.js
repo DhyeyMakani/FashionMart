@@ -12,10 +12,16 @@ import Footer from './Components/Footer/Footer';
 import men_banner from './Components/Assets/banner_mens.png';
 import women_banner from './Components/Assets/banner_women.png';
 import kid_banner from './Components/Assets/banner_kids.png';
+import { useState,useContext } from 'react';
+import { ContextProvider } from './ContextProvider.jsx';
 
 function App() {
+
+  const [loggedInUserName, setLoggedInUserName] = useState('');
+  
   return (
     <div>
+        <ContextProvider value={{loggedInUserName, setLoggedInUserName}} name="loginInfo">
         <BrowserRouter>
         <Navbar/>
         <Routes>
@@ -31,6 +37,7 @@ function App() {
         </Routes>
         <Footer/>
         </BrowserRouter>
+        </ContextProvider>
     </div>
   );
 }

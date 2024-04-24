@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import './CSS/LoginSignup.css'
+import { useContextValue } from './../ContextProvider.jsx';
+
 const BACKEND = process.env.REACT_APP_BACKEND;
 
 const LoginSignup = () => {
@@ -10,6 +12,8 @@ const LoginSignup = () => {
       password:"",
       email:""
     })
+
+    const {loggedInUserName, setLoggedInUserName} = useContextValue("loginInfo");
 
     const changeHandler = (e)=>{
       setFormData({...formData,[e.target.name]:e.target.value})
@@ -31,6 +35,9 @@ const LoginSignup = () => {
       if(responseData.success)
       {
         localStorage.setItem('auth-token',responseData.token);
+        setLoggedInUserName(formData.username);
+
+        alert("Welcome "+formData.username+"!")
 
         // after the successfull authentication we will logged in our webpage and send the user to home page
         window.location.replace("/");
@@ -71,7 +78,7 @@ const LoginSignup = () => {
         <h1>{state}</h1>
 
         <div className="loginsignup-fields">
-          {state==="Sign Up"?<input name='username' value={formData.username} onChange={changeHandler} type="text" placeholder='Your Name'/>:<></>}
+          {true?<input name='username' value={formData.username} onChange={changeHandler} type="text" placeholder='Your Name'/>:<></>}
           <input name='email' value={formData.email} onChange={changeHandler} type="email" placeholder='Email Address'/>
           <input name='password' value={formData.password} onChange={changeHandler} type="password" placeholder='Password'/>
         </div>
